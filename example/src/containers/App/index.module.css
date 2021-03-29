@@ -1,0 +1,132 @@
+.app {
+  height: 100%;
+  width: 100%;
+}
+
+.appLogo {
+  height: 10vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .appLogo {
+    animation: app-logo-spin infinite 20s linear;
+  }
+}
+
+.menuCog {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 5;
+}
+
+.menuSettings {
+  min-height: 100vh;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 3;
+}
+
+.bgSettings {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s;
+  visibility: hidden;
+  width: 100%;
+}
+
+.painel {
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  transform: translateY(-100%);
+  transition: all 0.5s;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 4;
+}
+
+.menuSettings--on,
+.menuSettings--on .painel,
+.menuSettings--on .bgSettings {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.appHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.appBody {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.appButton {
+  background: #7818ff;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 200px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.appInfos {
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.appInfos b {
+  color: #addb67;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.appResponse {
+  background-color: #011627;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #e5eff5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 400px;
+  line-height: 1.1em;
+  margin: 1.5em 0;
+  max-width: 785px;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 20px;
+  width: 80%;
+}
+
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
