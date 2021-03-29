@@ -1,30 +1,42 @@
-# api-proxy-library
+# Axios Hook Library
 
-> Made with create-react-library
-
-[![NPM](https://img.shields.io/npm/v/api-proxy-library.svg)](https://www.npmjs.com/package/api-proxy-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/axios-hook-library.svg)](https://www.npmjs.com/package/axios-hook-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save api-proxy-library
+npm install --save axios-hook-library
 ```
 
 ## Usage
 
 ```tsx
 import React, { Component } from 'react'
+import useAxiosHook from 'axios-hook-library'
 
-import MyComponent from 'api-proxy-library'
-import 'api-proxy-library/dist/index.css'
+import logo from './logo.svg'
+import './App.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+  const { isLoading, isSent, hasError, rspData, fetchData } = useAxiosHook()
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
+        <button
+          onClick={() =>
+            fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
+          }
+          type='button'
+        >
+          Send Request
+        </button>
+      </header>
+    </div>
+  )
 }
 ```
 
 ## License
 
-MIT © [nicklima](https://github.com/nicklima)
+MIT © [Nick Lima](https://github.com/nicklima)
