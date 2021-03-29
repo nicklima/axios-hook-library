@@ -1,4 +1,17 @@
-.checkOptions {
+.inputUrl {
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 0;
+  background: #e9e9e9;
+  margin: 20px 0;
+}
+
+.inputMethods {
+  display: flex;
+}
+
+.inputCheckOptions {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -11,7 +24,7 @@
 }
 
 /* Hide the browser's default radio button */
-.checkOptions input {
+.inputCheckOptions input {
   cursor: pointer;
   height: 0;
   opacity: 0;
@@ -20,7 +33,7 @@
 }
 
 /* Create a custom radio button */
-.checkmark {
+.inputCheckMark {
   background-color: #ccc;
   border-radius: 50%;
   height: 20px;
@@ -32,7 +45,7 @@
   width: 20px;
 }
 
-.checkmark:after {
+.inputCheckMark:after {
   content: '';
   display: none;
   position: absolute;
@@ -40,30 +53,30 @@
 }
 
 /* On mouse-over, add a grey background color */
-.checkOptions:hover input ~ .checkmark {
+.inputCheckOptions:hover input ~ .inputCheckMark {
   background-color: #f5f5f5;
 }
 
-.checkOptions:hover .checkmark:after {
+.inputCheckOptions:hover .inputCheckMark:after {
   display: block;
   background-color: #7818ff;
 }
 
-.checkOptions:hover input:checked ~ .checkmark:after {
+.inputCheckOptions:hover input:checked ~ .inputCheckMark:after {
   background-color: #fff;
 }
 
 /* When the radio button is checked, add a blue background */
-.checkOptions input:checked ~ .checkmark {
+.inputCheckOptions input:checked ~ .inputCheckMark {
   background-color: #7818ff;
 }
 
-.checkOptions input:checked ~ .checkmark:after {
+.inputCheckOptions input:checked ~ .inputCheckMark:after {
   display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.checkOptions .checkmark:after {
+.inputCheckOptions .inputCheckMark:after {
   top: 50%;
   left: 50%;
   width: 8px;

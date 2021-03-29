@@ -15,10 +15,66 @@
 }
 
 .menuCog {
+  align-items: center;
+  background-color: #7818ff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  justify-self: flex-end;
+  margin-right: 10px;
+  outline: none;
   position: fixed;
   right: 20px;
   top: 20px;
+  transition: 0.5s all;
+  transition-delay: 0.3s;
+  width: 50px;
   z-index: 5;
+}
+
+.menuCog:hover span:nth-child(2),
+.menuCog:hover span:nth-child(3) {
+  width: 100%;
+}
+
+.holder {
+  width: 20px;
+  pointer-events: none;
+}
+
+.holder span {
+  background: white;
+  border-radius: 5px;
+  display: block;
+  height: 4px;
+  margin-top: 3px;
+  pointer-events: none;
+  transition: 0.5s all;
+  width: 100%;
+}
+
+.holder span:nth-child(2) {
+  width: 70%;
+}
+
+.holder span:nth-child(3) {
+  width: 0%;
+}
+
+.holder.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.holder.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.holder.open span:nth-child(3) {
+  width: 100%;
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .menuSettings {

@@ -29,6 +29,13 @@ main {
   width: 100%;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 15px;
+  width: 100%;
+}
+
 code {
   font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,6 +1,6 @@
 {
-  "short_name": "api-proxy-library",
-  "name": "api-proxy-library",
+  "short_name": "axios-hook-library",
+  "name": "axios-hook-library",
   "icons": [
     {
       "src": "favicon.ico",
