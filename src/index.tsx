@@ -24,7 +24,7 @@ const useAxiosHook = (resetInterval?: number) => {
     endpoint: string,
     method: any = 'POST',
     data: object = {},
-    headers: object = {}
+    headers: HeadersInit = {},
   ) => {
     setIsLoading(true)
     return axios({
