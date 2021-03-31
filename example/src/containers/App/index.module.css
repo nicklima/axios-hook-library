@@ -14,112 +14,6 @@
   }
 }
 
-.menuCog {
-  align-items: center;
-  background-color: #7818ff;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  justify-self: flex-end;
-  margin-right: 10px;
-  outline: none;
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  transition: 0.5s all;
-  transition-delay: 0.3s;
-  width: 50px;
-  z-index: 5;
-}
-
-.menuCog:hover span:nth-child(2),
-.menuCog:hover span:nth-child(3) {
-  width: 100%;
-}
-
-.holder {
-  width: 20px;
-  pointer-events: none;
-}
-
-.holder span {
-  background: white;
-  border-radius: 5px;
-  display: block;
-  height: 4px;
-  margin-top: 3px;
-  pointer-events: none;
-  transition: 0.5s all;
-  width: 100%;
-}
-
-.holder span:nth-child(2) {
-  width: 70%;
-}
-
-.holder span:nth-child(3) {
-  width: 0%;
-}
-
-.holder.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.holder.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.holder.open span:nth-child(3) {
-  width: 100%;
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.menuSettings {
-  min-height: 100vh;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: all 0.2s;
-  visibility: hidden;
-  width: 100%;
-  z-index: 3;
-}
-
-.bgSettings {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: all 0.5s;
-  visibility: hidden;
-  width: 100%;
-}
-
-.painel {
-  position: absolute;
-  top: 0;
-  padding: 20px;
-  transform: translateY(-100%);
-  transition: all 0.5s;
-  background: #fff;
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
-  z-index: 4;
-}
-
-.menuSettings--on,
-.menuSettings--on .painel,
-.menuSettings--on .bgSettings {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
 .appHeader {
   display: flex;
   flex-direction: column;
@@ -146,18 +40,6 @@
   padding: 10px 15px;
   text-transform: uppercase;
   outline: none;
-}
-
-.appInfos {
-  font-size: 18px;
-  font-weight: 300;
-  color: #fff;
-}
-
-.appInfos b {
-  color: #addb67;
-  text-transform: uppercase;
-  margin-right: 10px;
 }
 
 .appResponse {

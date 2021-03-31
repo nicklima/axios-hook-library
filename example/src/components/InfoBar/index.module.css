@@ -1,0 +1,23 @@
+.appInfos {
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.appInfos b {
+  color: #addb67;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.appEndpoint {
+  background: #fff;
+  padding: 5px 10px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.appEndpoint b {
+  margin-right: 3px;
+  color: #7818ff;
+}

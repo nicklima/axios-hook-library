@@ -23,12 +23,14 @@ const useAxiosHook = (resetInterval?: number) => {
   const fetchData = (
     endpoint: string,
     method: any = 'POST',
-    data: object = {}
+    data: object = {},
+    headers: object = {}
   ) => {
     setIsLoading(true)
     return axios({
       method,
       baseURL: endpoint,
+      headers,
       data
     })
       .then((response) => handleResponse(response.data))

@@ -6,6 +6,13 @@ const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
   const { endpoint, method, reset } = data
   return (
     <div>
+      <div className={[styles.inputMethods, styles['inputMethods--slider']].join(' ')}>
+        <label className={styles.inputSwitch}>
+          <input type="checkbox" onChange={() => setReset(!reset)} />
+          <span className={styles.inputSlider}></span>
+        </label>
+        <span>Reset Sent State</span>
+      </div>
       <input
         className={styles.inputUrl}
         type='url'
@@ -27,16 +34,6 @@ const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
             </label>
           )
         })}
-      </div>
-      <div className={styles.inputMethods}>
-        <label
-          className={styles.inputCheckOptions}
-          onClick={() => setReset(!reset)}
-        >
-          <span>Resetar isSent</span>
-          <input type='checkbox' />
-          <span className={styles.inputCheckMark} />
-        </label>
       </div>
     </div>
   )

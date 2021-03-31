@@ -4,10 +4,13 @@ import useAxiosHook from 'axios-hook-library'
 import logo from '../../logo.svg'
 import styles from './index.module.css'
 
-import RadioInput from '../../components/RadioInput'
+
+import InfoBar from '../../components/InfoBar'
+import MenuSettings from '../../components/MenuSettings'
+
 
 const App = () => {
-  const [settings, setSettings] = useState(false)
+
   const [reset, setReset] = useState(false)
   const [method, setMethod] = useState('POST')
   const [endpoint, setEndpoint] = useState(
@@ -24,34 +27,7 @@ const App = () => {
 
   return (
     <main>
-      <button
-        aria-label='Abrir Menu Lateral'
-        className={styles.menuCog}
-        onClick={() => setSettings(!settings)}
-      >
-        <div className={`${styles.holder} ${settings ? styles['open'] : ''}`}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <div
-        className={`${styles.menuSettings} ${
-          settings && styles['menuSettings--on']
-        }`}
-      >
-        <div className={styles.painel}>
-          <div className='container'>
-            <RadioInput
-              setReset={handleReset}
-              changeMethod={handleMethod}
-              changeEndpoint={handleEndpoint}
-              data={{ endpoint, method, reset }}
-            />
-          </div>
-        </div>
-        <div onClick={() => setSettings(false)} className={styles.bgSettings} />
-      </div>
+      <MenuSettings handleMethod={handleMethod} handleEndpoint={handleEndpoint} handleReset={handleReset} data={{ reset, method, endpoint }} />
       <div className={styles.app}>
         <header className={styles.appHeader}>
           <img src={logo} className={styles.appLogo} alt='logo' />
@@ -64,29 +40,10 @@ const App = () => {
           >
             Fetch Data
           </button>
-          <div className={styles.appInfos}>
-            Method: <b>{`${method}`}</b>
-            Sent:{' '}
-            <b
-              style={{ color: isSent ? '#addb67' : '#ffa7c4' }}
-            >{`${isSent}`}</b>
-            Loading:{' '}
-            <b
-              style={{ color: isLoading ? '#addb67' : '#ffa7c4' }}
-            >{`${isLoading}`}</b>
-            Error:{' '}
-            <b
-              style={{ color: hasError ? '#ffa7c4' : '#addb67' }}
-            >{`${hasError}`}</b>
-          </div>
-          <div>Endpoint: {endpoint}</div>
+          <InfoBar method={method} endpoint={endpoint} reset={reset} isLoading={isLoading} isSent={isSent} hasError={hasError} />
           <pre className={styles.appResponse}>
             <code>
-              {rspData ? (
-                JSON.stringify(rspData, null, 2)
-              ) : (
-                <p>Data fetched will be showed here</p>
-              )}
+              {JSON.stringify(rspData, null, 2)}
             </code>
           </pre>
         </div>
