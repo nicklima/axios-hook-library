@@ -2,15 +2,15 @@ import React from 'react'
 
 import styles from './index.module.css'
 
-const InfoBar = ({ method, endpoint, reset, isLoading, isSent, hasError }: any) => {
+const InfoBar = ({ method, endpoint, reset, isLoading, isSuccess, hasError }: any) => {
     return (
         <>
             <div className={styles.appInfos}>
                 Method: <b>{`${method}`}</b>
             Sent:{' '}
                 <b
-                    style={{ color: isSent ? '#addb67' : '#ffa7c4' }}
-                >{`${isSent}`}
+                    style={{ color: isSuccess ? '#addb67' : '#ffa7c4' }}
+                >{`${isSuccess}`}
                 </b>
             Reset:{' '}
                 <b

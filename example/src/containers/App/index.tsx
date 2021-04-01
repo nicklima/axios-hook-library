@@ -17,7 +17,7 @@ const App = () => {
     'https://jsonplaceholder.typicode.com/posts/1'
   )
 
-  const { isLoading, isSent, hasError, rspData, fetchData } = useAxiosHook(
+  const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook(
     reset ? 3000 : 0
   )
 
@@ -40,7 +40,7 @@ const App = () => {
           >
             Fetch Data
           </button>
-          <InfoBar method={method} endpoint={endpoint} reset={reset} isLoading={isLoading} isSent={isSent} hasError={hasError} />
+          <InfoBar method={method} endpoint={endpoint} reset={reset} isLoading={isLoading} isSuccess={isSuccess} hasError={hasError} />
           <pre className={styles.appResponse}>
             <code>
               {JSON.stringify(rspData, null, 2)}

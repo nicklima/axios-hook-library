@@ -2,19 +2,25 @@ import * as React from 'react'
 import axios from 'axios'
 
 const useAxiosHook = (resetInterval?: number) => {
-  const [isSent, setIsSent] = React.useState<boolean>(false)
+  const [isSuccess, setIsSuccess] = React.useState<boolean>(false)
   const [hasError, setHasError] = React.useState<boolean>(false)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [rspData, setRspData] = React.useState<object>({})
 
+  const handleReset = (): void => {
+    setIsLoading(true)
+    setIsSuccess(false)
+    setHasError(false)
+  }
+
   const handleResponse = (e: any) => {
     setRspData(e)
-    setIsSent(true)
+    setIsSuccess(true)
   }
 
   const handleError = (e: any) => {
     setRspData(e)
-    setIsSent(false)
+    setIsSuccess(false)
     setHasError(true)
   }
 
@@ -26,7 +32,7 @@ const useAxiosHook = (resetInterval?: number) => {
     data: object = {},
     headers: HeadersInit = {},
   ) => {
-    setIsLoading(true)
+    handleReset()
     return axios({
       method,
       baseURL: endpoint,
@@ -40,15 +46,15 @@ const useAxiosHook = (resetInterval?: number) => {
 
   React.useEffect(() => {
     let timeout: any
-    if (isSent && resetInterval) {
-      timeout = setTimeout(() => setIsSent(false), resetInterval)
+    if (isSuccess && resetInterval) {
+      timeout = setTimeout(() => setIsSuccess(false), resetInterval)
     }
     return () => {
       clearTimeout(timeout)
     }
-  }, [isSent, resetInterval])
+  }, [isSuccess, resetInterval])
 
-  return { isLoading, isSent, hasError, rspData, fetchData }
+  return { isLoading, isSuccess, hasError, rspData, fetchData }
 }
 
 export default useAxiosHook
