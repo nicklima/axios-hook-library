@@ -18,7 +18,7 @@ import logo from './logo.svg'
 import './App.css'
 
 const App = () => {
-  const { isLoading, isSent, hasError, rspData, fetchData } = useAxiosHook()
+  const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
   return (
     <div className='App'>
       <header className='App-header'>

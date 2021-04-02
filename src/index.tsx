@@ -1,5 +1,5 @@
 import * as React from 'react'
-import axios from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 
 const useAxiosHook = (resetInterval?: number) => {
   const [isSuccess, setIsSuccess] = React.useState<boolean>(false)
@@ -13,12 +13,12 @@ const useAxiosHook = (resetInterval?: number) => {
     setHasError(false)
   }
 
-  const handleResponse = (e: any) => {
+  const handleResponse = (e: any): void => {
     setRspData(e)
     setIsSuccess(true)
   }
 
-  const handleError = (e: any) => {
+  const handleError = (e: any): void => {
     setRspData(e)
     setIsSuccess(false)
     setHasError(true)
@@ -27,20 +27,23 @@ const useAxiosHook = (resetInterval?: number) => {
   const handleLoad = () => setIsLoading(false)
 
   const fetchData = (
-    endpoint: string,
+    baseURL: string,
     method: any = 'POST',
     data: object = {},
     headers: HeadersInit = {},
+    responseType: any = 'json',
   ) => {
     handleReset()
-    return axios({
+
+    return axios.request({
       method,
-      baseURL: endpoint,
+      baseURL,
       headers,
-      data
+      data,
+      responseType
     })
-      .then((response) => handleResponse(response.data))
-      .catch((error) => error && handleError(error.response))
+      .then((response: AxiosResponse): void => handleResponse(response.data))
+      .catch((error: AxiosError): void => error && handleError(error.toJSON()))
       .finally(() => handleLoad())
   }
 

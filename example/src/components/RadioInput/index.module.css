@@ -140,7 +140,7 @@ input:checked + .inputSlider {
 }
 
 input:focus + .inputSlider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #7818ff;
 }
 
 input:checked + .inputSlider:before {

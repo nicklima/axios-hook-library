@@ -4,10 +4,9 @@ import useAxiosHook from 'axios-hook-library'
 import logo from '../../logo.svg'
 import styles from './index.module.css'
 
-
 import InfoBar from '../../components/InfoBar'
 import MenuSettings from '../../components/MenuSettings'
-
+import ResponseBoard from '../../components/ResponseBoard'
 
 const App = () => {
 
@@ -35,17 +34,17 @@ const App = () => {
         <div className={styles.appBody}>
           <button
             className={styles.appButton}
-            onClick={() => fetchData(endpoint, method)}
+            onClick={() => fetchData(endpoint, method, {
+              title: 'New Post',
+              body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia asperiores mollitia ipsam aliquam dolore, similique et enim error non iste illo inventore voluptate debitis. Ut vero eligendi ducimus et mollitia!',
+              userId: 1
+            })}
             type='button'
           >
             Fetch Data
           </button>
           <InfoBar method={method} endpoint={endpoint} reset={reset} isLoading={isLoading} isSuccess={isSuccess} hasError={hasError} />
-          <pre className={styles.appResponse}>
-            <code>
-              {JSON.stringify(rspData, null, 2)}
-            </code>
-          </pre>
+          <ResponseBoard data={rspData} />
         </div>
       </div>
     </main>

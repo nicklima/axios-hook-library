@@ -1,0 +1,17 @@
+.appResponse {
+  background-color: #011627;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #e5eff5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 400px;
+  line-height: 1.1em;
+  margin: 1.5em 0;
+  max-width: 785px;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 20px;
+  width: 80%;
+}

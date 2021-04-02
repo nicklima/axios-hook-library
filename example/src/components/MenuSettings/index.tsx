@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import styles from "./index.module.css"
 import RadioInput from '../RadioInput'
+
 const MenuSettings = ({ handleMethod, handleEndpoint, handleReset, data }: any) => {
     const [settings, setSettings] = useState(false)
     return (

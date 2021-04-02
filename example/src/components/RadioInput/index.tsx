@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './index.module.css'
 
 const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
-  const methods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE']
   const { endpoint, method, reset } = data
+  const methods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE']
   return (
     <div>
       <div className={[styles.inputMethods, styles['inputMethods--slider']].join(' ')}>
@@ -26,10 +26,9 @@ const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
             <label
               key={`methods_${idx}`}
               className={styles.inputCheckOptions}
-              onClick={() => changeMethod(item)}
             >
               <span>{item}</span>
-              <input type='checkbox' checked={item === method && true} />
+              <input type='checkbox' onChange={() => changeMethod(item)} checked={item === method && true} />
               <span className={styles.inputCheckMark} />
             </label>
           )
