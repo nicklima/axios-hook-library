@@ -13,6 +13,7 @@
   - [POST](#POST)
   - [GET](#GET)
   - [PATCH/PUT](#PATCH/PUT)
+  - [DELETE](#DELETE)
 - [TODO](#todo)
 - [License](#license)
 
