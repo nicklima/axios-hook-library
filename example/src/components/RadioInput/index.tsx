@@ -3,7 +3,7 @@ import styles from './index.module.css'
 
 const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
   const { endpoint, method, reset } = data
-  const methods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE']
+  const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
   return (
     <div>
       <div className={[styles.inputMethods, styles['inputMethods--slider']].join(' ')}>

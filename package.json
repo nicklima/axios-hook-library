@@ -1,8 +1,8 @@
 {
   "name": "axios-hook-library",
   "version": "1.0.0",
-  "description": "React Hook to fetch data with Axios",
-  "author": "nicklima",
+  "description": "NPM React Hook Package to fetch data with Axios",
+  "author": "Nick Lima",
   "license": "MIT",
   "repository": "nicklima/axios-hook-library",
   "main": "dist/index.js",
@@ -11,10 +11,10 @@
   "engines": {
     "node": ">=10"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
@@ -24,6 +24,9 @@
     "preview": "cd example && npm run start",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "cd example && gh-pages -d example/build",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepare": "run-s build",
+    "build": "microbundle-crl --no-compress --format modern,cjs",
     "publish": "npm test && npm publish"
   },
   "peerDependencies": {
@@ -60,9 +63,6 @@
     "react-scripts": "^3.4.1",
     "typescript": "^3.7.5"
   },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "axios": "^0.21.1"
   }

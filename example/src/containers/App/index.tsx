@@ -11,7 +11,7 @@ import ResponseBoard from '../../components/ResponseBoard'
 const App = () => {
 
   const [reset, setReset] = useState(false)
-  const [method, setMethod] = useState('POST')
+  const [method, setMethod] = useState<any>("GET")
   const [endpoint, setEndpoint] = useState(
     'https://jsonplaceholder.typicode.com/posts/1'
   )
@@ -24,6 +24,11 @@ const App = () => {
   const handleEndpoint = (e: string) => setEndpoint(e)
   const handleReset = (e: boolean) => setReset(e)
 
+  const formData = {
+    title: 'New Post',
+    userId: 1
+  }
+
   return (
     <main>
       <MenuSettings handleMethod={handleMethod} handleEndpoint={handleEndpoint} handleReset={handleReset} data={{ reset, method, endpoint }} />
@@ -34,11 +39,7 @@ const App = () => {
         <div className={styles.appBody}>
           <button
             className={styles.appButton}
-            onClick={() => fetchData(endpoint, method, {
-              title: 'New Post',
-              body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia asperiores mollitia ipsam aliquam dolore, similique et enim error non iste illo inventore voluptate debitis. Ut vero eligendi ducimus et mollitia!',
-              userId: 1
-            })}
+            onClick={() => fetchData(endpoint, method, formData)}
             type='button'
           >
             Fetch Data
