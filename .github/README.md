@@ -1,4 +1,4 @@
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/axios-hook-library.svg)](https://www.npmjs.com/package/axios-hook-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # Axios Hook Library
 
@@ -6,12 +6,15 @@
 
 - [About](#about)
 - [Playground](#playground)
+- [Technologies](#technologies)
+- [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Usage & Examples](#usage-&-examples)
   - [POST](#POST)
   - [GET](#GET)
   - [PATCH/PUT](#PATCH/PUT)
   - [DELETE](#DELETE)
+- [TODO](#todo)
 - [License](#license)
 
 ## About
@@ -21,6 +24,23 @@ This project was developed as an NPM package to aid in our intern development to
 ## Playground
 
 [Click here](http://nicklima.com.br) to view the project demo and made tests requests.
+
+## Technologies
+
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org)
+- [PropTypes](https://github.com/facebook/prop-types)
+
+## Dependencies
+
+- [Node](https://nodejs.org/en/download/)
+- [Create React Lib](https://www.npmjs.com/package/create-react-library)
+- [MicroBundle CRL](https://www.npmjs.com/package/microbundle-crl)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Pretier](https://prettier.io/)
+- [Eslint](https://eslint.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [CrossEnv](https://www.npmjs.com/package/cross-env)
 
 ## Installation
 
@@ -262,6 +282,14 @@ const App = () => {
 
 export default App
 ```
+
+## TODO
+
+Here are some features that i want to add in the package. If you want to help, send me a PR
+
+- [ ] Unitary tests with Jest to the axios functions;
+- [ ] Add Headers Fields to Input headers options on Playground/Preview URL;
+- [ ] Security measures;
 
 ## License
 
