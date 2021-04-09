@@ -10,8 +10,9 @@ import ResponseBoard from '../../components/ResponseBoard'
 
 const App = () => {
 
+  type Methods = "GET" | "POST" | "PUT" | "PATCH" | "DELETE"
   const [reset, setReset] = useState(false)
-  const [method, setMethod] = useState<any>("GET")
+  const [method, setMethod] = useState<Methods>("GET")
   const [endpoint, setEndpoint] = useState(
     'https://jsonplaceholder.typicode.com/posts/1'
   )
@@ -20,7 +21,7 @@ const App = () => {
     reset ? 3000 : 0
   )
 
-  const handleMethod = (e: string) => setMethod(e)
+  const handleMethod = (e: Methods) => setMethod(e)
   const handleEndpoint = (e: string) => setEndpoint(e)
   const handleReset = (e: boolean) => setReset(e)
 
