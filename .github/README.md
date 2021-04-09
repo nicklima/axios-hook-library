@@ -19,7 +19,7 @@
 
 ## About
 
-This project was developed as an NPM package to aid in our intern development to minimize code on our projects.
+This project was developed as an NPM package to aid in our internal development to minimize code on our projects.
 
 ## Playground
 
