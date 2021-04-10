@@ -1,13 +1,21 @@
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 # Axios Hook Library
+
+[![NPM](https://img.shields.io/npm/v/axios-hook-library.svg)](https://www.npmjs.com/package/axios-hook-library)
+
+[![GH-Pages](https://img.shields.io/github/deployments/nicklima/axios-hook-library/github-pages)](https://nicklima.github.io/axios-hook-library/)
+[![GitHub License](https://img.shields.io/github/license/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library/)
+[![ISSUES](https://img.shields.io/github/issues/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library/issues)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
+[![Code Size](https://img.shields.io/github/languages/code-size/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library)
+[![Top Language](https://img.shields.io/github/languages/top/nicklima/axios-hook-library)](https://standardjs.com)
 
 ## Table of contents
 
 - [About](#about)
 - [Playground](#playground)
 - [Installation](#installation)
-- [Usage & Examples](#usage-&-examples)
+- [Usage](#usage)
+- [Examples](#examples)
   - [POST](#POST)
   - [GET](#GET)
   - [PATCH/PUT](#PATCH/PUT)
@@ -20,7 +28,7 @@ This project was developed as an NPM package to aid in our internal development 
 
 ## Playground
 
-[Click here](http://nicklima.com.br) to view the project demo and made tests requests.
+[Click here](https://nicklima.github.io/axios-hook-library/) to view the project demo and made some tests requests.
 
 ## Installation
 
@@ -28,11 +36,9 @@ This project was developed as an NPM package to aid in our internal development 
 npm install --save axios-hook-library
 ```
 
-## Usage & Examples
+## Usage
 
-Here are some examples of how to use Axios Hook Library
-
-### Usage
+Once installed just import it into your JSX file as in the example below
 
 ```tsx
 import React from 'react'
@@ -58,13 +64,15 @@ const App = () => {
 export default App
 ```
 
+In the code below we have some useful information on how to use the library
+
 ```tsx
-//If you want to reset isSucess state pass a time param to use the hook.
+//If you want to reset the isSuccess state, pass a time parameter on the hook call.
 //Ex: useAxiosHook(3000)
 const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
 
 //Function fetchData
-//Params: baseURL, method, data, headers, responseType
+//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data, headers
 fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 
 //React States
@@ -74,6 +82,10 @@ isSuccess && <p>Sent</p>
 hasError && <p>Error</p>
 rspData && <pre>{JSON.stringify(data, null, 2)}</pre>
 ```
+
+## Examples
+
+Check below how to make requests with the Axios Hook Library
 
 ### POST
 
@@ -88,9 +100,8 @@ const App = () => {
   const { isLoading, isSuccess, hasError, fetchData } = useAxiosHook()
 
   const formData = {
-    title: 'New Post',
-    body:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia asperiores mollitia ipsam aliquam dolore, similique et enim error non iste illo inventore voluptate debitis.',
+    title: 'Axios Hook Library',
+    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     userId: 1
   }
 
@@ -192,7 +203,7 @@ const App = () => {
   const { isLoading, isSuccess, hasError, fetchData } = useAxiosHook()
 
   const formData = {
-    title: 'New Post',
+    title: 'Axios Hook Library',
     userId: 1
   }
 

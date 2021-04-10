@@ -1,6 +1,13 @@
-[![NPM](https://img.shields.io/npm/v/axios-hook-library.svg)](https://www.npmjs.com/package/axios-hook-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 # Axios Hook Library
+
+[![NPM](https://img.shields.io/npm/v/axios-hook-library.svg)](https://www.npmjs.com/package/axios-hook-library)
+
+[![GH-Pages](https://img.shields.io/github/deployments/nicklima/axios-hook-library/github-pages)](https://nicklima.github.io/axios-hook-library/)
+[![GitHub License](https://img.shields.io/github/license/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library/)
+[![GitHub Issues](https://img.shields.io/github/issues/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library/issues)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-blue.svg)](https://standardjs.com)
+[![Code Size](https://img.shields.io/github/languages/code-size/nicklima/axios-hook-library)](https://github.com/nicklima/axios-hook-library)
+[![Top Language](https://img.shields.io/github/languages/top/nicklima/axios-hook-library)](https://standardjs.com)
 
 ## Table of contents
 
@@ -9,7 +16,7 @@
 - [Technologies](#technologies)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
-- [Usage & Examples](#usage-&-examples)
+- [Usage & Examples](#usage--examples)
   - [POST](#POST)
   - [GET](#GET)
   - [PATCH/PUT](#PATCH/PUT)
@@ -19,11 +26,11 @@
 
 ## About
 
-This project was developed as an NPM package to aid in our internal development to minimize code on our projects.
+This project was developed to help our team to minimize the code in our projects.
 
 ## Playground
 
-[Click here](http://nicklima.com.br) to view the project demo and made tests requests.
+[Click here](https://nicklima.github.io/axios-hook-library/) to view the project demo and made some tests requests.
 
 ## Technologies
 
@@ -44,15 +51,56 @@ This project was developed as an NPM package to aid in our internal development 
 
 ## Installation
 
+To run the code on your machine, follow the steps below.
+
+```bash
+git clone git@github.com:nicklima/axios-hook-library.git
+```
+
+After cloning the project, we need to install all the dependencies.
+
+```bash
+npm install
+```
+
+Local development is broken into two parts (ideally using two tabs).
+First, run rollup to watch your src/ module and automatically recompile it into dist/ whenever you make changes.
+
+```bash
+npm start # runs rollup with watch flag
+```
+
+The second part will be running the example/ create-react-app that's linked to the local version of your module.
+
+We have to prepare the test environment to view the package that is being executed. Open another terminal window and run the following commands:
+
+```bash
+# (in another tab)
+npm run example  # chage to example directory and install modules
+```
+
+And finally we can run the project and test.
+
+```bash
+# (on the same tab as the previous command)
+npm run preview # runs create-react-app dev server
+```
+
+Now, anytime you make a change to your library in src/ or to the example app's example/src, create-react-app will live-reload your local dev server so you can iterate on your component in real-time.
+
+## Usage & Examples
+
+The package is not yet published but below are some examples of how to use Axios Hook Library.
+
+First we will need to install the package
+
 ```bash
 npm install --save axios-hook-library
 ```
 
-## Usage & Examples
-
-Here are some examples of how to use Axios Hook Library
-
 ### Usage
+
+Once installed just import it into your JSX file as in the example below
 
 ```tsx
 import React from 'react'
@@ -78,13 +126,15 @@ const App = () => {
 export default App
 ```
 
+In the code below we have some useful information on how to use the library
+
 ```tsx
-//If you want to reset isSucess state pass a time param to use the hook.
+//If you want to reset the isSuccess state, pass a time parameter on the hook call.
 //Ex: useAxiosHook(3000)
 const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
 
 //Function fetchData
-//Params: baseURL, method, data, headers, responseType
+//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data, headers
 fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 
 //React States
@@ -95,7 +145,11 @@ hasError && <p>Error</p>
 rspData && <pre>{JSON.stringify(data, null, 2)}</pre>
 ```
 
-### POST
+### Examples
+
+Check below how to make requests with the Axios Hook Library
+
+#### POST
 
 ```tsx
 import React from 'react'
@@ -108,9 +162,8 @@ const App = () => {
   const { isLoading, isSuccess, hasError, fetchData } = useAxiosHook()
 
   const formData = {
-    title: 'New Post',
-    body:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia asperiores mollitia ipsam aliquam dolore, similique et enim error non iste illo inventore voluptate debitis.',
+    title: 'Axios Hook Library',
+    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     userId: 1
   }
 
@@ -142,7 +195,7 @@ const App = () => {
 export default App
 ```
 
-### GET
+#### GET
 
 ```tsx
 import React from 'react'
@@ -199,7 +252,7 @@ const App = () => {
 export default App
 ```
 
-### PATCH/PUT
+#### PATCH/PUT
 
 ```tsx
 import React from 'react'
@@ -212,7 +265,7 @@ const App = () => {
   const { isLoading, isSuccess, hasError, fetchData } = useAxiosHook()
 
   const formData = {
-    title: 'New Post',
+    title: 'Axios Hook Library',
     userId: 1
   }
 
@@ -244,7 +297,7 @@ const App = () => {
 export default App
 ```
 
-### DELETE
+#### DELETE
 
 ```tsx
 import React from 'react'
@@ -287,9 +340,11 @@ export default App
 
 Here are some features that i want to add in the package. If you want to help, send me a PR
 
+- [ ] Create a DOC page;
 - [ ] Unitary tests with Jest to the axios functions;
+- [ ] Check and fix all types;
 - [ ] Add Headers Fields to Input headers options on Playground/Preview URL;
-- [ ] Security measures;
+- [ ] Check the code and dependencies looking for Security Issues;
 
 ## License
 
