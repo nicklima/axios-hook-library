@@ -1,40 +1,10 @@
-import axios from 'axios';
-import useAxiosHook from './'
+import React from "react";
+import { shallow } from "enzyme";
 
-jest.mock('axios');
+import App from "../example/src/containers/App"
 
-
-describe('useAxiosHook', () => {
-  const { isLoading, isSent, rspData, fetchData } = useAxiosHook()
-  console.log(isLoading, isSent, rspData)
-
-  it('fetches successfully data from an API', async () => {
-    const data = {
-      data: {
-        hits: [
-          {
-            objectID: '1',
-            title: 'a',
-          },
-          {
-            objectID: '2',
-            title: 'b',
-          },
-        ],
-      },
-    };
-
-    axios.get.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(fetchData('react')).resolves.toEqual(data);
+describe('Render APP in Example Folder', () => {
+  it("renders without crashing", () => {
+    shallow(<App />);
   });
-
-  it('fetches erroneously data from an API', async () => {
-    const errorMessage = 'Network Error';
-
-    axios.get.mockImplementationOnce(() =>
-      Promise.reject(new Error(errorMessage)),
-    );
-
-    await expect(fetchData('react')).rejects.toThrow(errorMessage);
-  });
-});
+})

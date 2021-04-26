@@ -40,7 +40,9 @@ const App = () => {
         <div className={styles.appBody}>
           <button
             className={styles.appButton}
-            onClick={() => fetchData(endpoint, method, formData)}
+            onClick={() => {
+              method === 'GET' || method === 'DELETE' ? fetchData(endpoint, method) : fetchData(endpoint, method, formData)
+            }}
             type='button'
           >
             Fetch Data
