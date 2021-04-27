@@ -1,6 +1,6 @@
 {
   "name": "axios-hook-library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NPM React Hook Package to fetch data with Axios",
   "author": "Nick Lima",
   "license": "MIT",
