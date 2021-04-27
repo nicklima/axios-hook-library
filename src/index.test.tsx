@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
 import useAxiosHook from './index'
 
 it('renders without crashing', () => {
