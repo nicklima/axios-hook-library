@@ -1,10 +1,13 @@
 {
   "name": "axios-hook-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NPM React Hook Package to fetch data with Axios",
   "author": "Nick Lima",
   "license": "MIT",
-  "repository": "nicklima/axios-hook-library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicklima/axios-hook-library.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -28,9 +31,10 @@
     "publish"
   ],
   "scripts": {
+    "format": "prettier --write \"src/**/*.tsx\" \"example/src/**/*.tsx\"",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
-    "test:lint": "eslint .",
+    "test:lint": "eslint ./src/index.tsx",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "example": "cd example && npm install",
@@ -40,7 +44,11 @@
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "build": "microbundle-crl --no-compress --format modern,cjs",
-    "publish": "npm test && npm publish"
+    "prepublishOnly": "npm run test",
+    "publish": "npm publish",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A",
+    "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
     "react": "^16.0.0"

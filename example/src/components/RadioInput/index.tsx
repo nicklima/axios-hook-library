@@ -6,9 +6,13 @@ const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
   const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
   return (
     <div>
-      <div className={[styles.inputMethods, styles['inputMethods--slider']].join(' ')}>
+      <div
+        className={[styles.inputMethods, styles['inputMethods--slider']].join(
+          ' '
+        )}
+      >
         <label className={styles.inputSwitch}>
-          <input type="checkbox" onChange={() => setReset(!reset)} />
+          <input type='checkbox' onChange={() => setReset(!reset)} />
           <span className={styles.inputSlider}></span>
         </label>
         <span>Reset Sent State</span>
@@ -23,12 +27,13 @@ const RadioInput = ({ setReset, changeMethod, changeEndpoint, data }: any) => {
       <div className={styles.inputMethods}>
         {methods.map((item: string, idx: number) => {
           return (
-            <label
-              key={`methods_${idx}`}
-              className={styles.inputCheckOptions}
-            >
+            <label key={`methods_${idx}`} className={styles.inputCheckOptions}>
               <span>{item}</span>
-              <input type='checkbox' onChange={() => changeMethod(item)} checked={item === method && true} />
+              <input
+                type='checkbox'
+                onChange={() => changeMethod(item)}
+                checked={item === method && true}
+              />
               <span className={styles.inputCheckMark} />
             </label>
           )
