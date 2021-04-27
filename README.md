@@ -33,7 +33,11 @@ This project was developed as an NPM package to aid in our internal development 
 ## Installation
 
 ```bash
-npm install --save axios-hook-library
+# npm
+npm install axios-hook-library
+
+# yarn
+yarn add axios-hook-library
 ```
 
 ## Usage
@@ -72,7 +76,7 @@ In the code below we have some useful information on how to use the library
 const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
 
 //Function fetchData
-//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data, headers
+//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data
 fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 
 //React States
@@ -80,7 +84,7 @@ fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 isLoading && <p>Loading</p>
 isSuccess && <p>Sent</p>
 hasError && <p>Error</p>
-rspData && <pre>{JSON.stringify(data, null, 2)}</pre>
+rspData && <pre>{JSON.stringify(rspData, null, 2)}</pre>
 ```
 
 ## Examples
@@ -102,7 +106,7 @@ const App = () => {
   const formData = {
     title: 'Axios Hook Library',
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    userId: 1
+    userId: 1,
   }
 
   return (
@@ -166,18 +170,18 @@ const App = () => {
               )
             }
           >
-            Get Posts
+            Get Comments
           </button>
         </header>
-        <div className='posts'>
+        <div className='comments'>
           {isLoading && <p>Loading Content...</p>}
           {hasError && <p>Some error occurred, try again.</p>}
           {checkData() &&
-            rspData.data.map((post: any) => {
+            rspData.data.map((comment: any) => {
               return (
-                <div key={post.id}>
-                  <h1>{post.title}</h1>
-                  <p>{post.body}</p>
+                <div key={comment.id}>
+                  <h1>{comment.title}</h1>
+                  <p>{comment.body}</p>
                 </div>
               )
             })}
@@ -204,7 +208,8 @@ const App = () => {
 
   const formData = {
     title: 'Axios Hook Library',
-    userId: 1
+    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    userId: 1,
   }
 
   return (

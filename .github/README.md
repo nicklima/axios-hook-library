@@ -37,7 +37,6 @@ This project was developed to help our team to minimize the code in our projects
 
 - [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org)
-- [PropTypes](https://github.com/facebook/prop-types)
 
 ## Dependencies
 
@@ -61,14 +60,23 @@ git clone git@github.com:nicklima/axios-hook-library.git
 After cloning the project, we need to install all the dependencies.
 
 ```bash
+# npm
 npm install
+
+# yarn
+yarn install
 ```
 
 Local development is broken into two parts (ideally using two tabs).
 First, run rollup to watch your src/ module and automatically recompile it into dist/ whenever you make changes.
 
 ```bash
-npm start # runs rollup with watch flag
+# runs rollup with watch flag
+# npm
+npm start
+
+# yarn
+yarn start
 ```
 
 The second part will be running the example/ create-react-app that's linked to the local version of your module.
@@ -77,26 +85,41 @@ We have to prepare the test environment to view the package that is being execut
 
 ```bash
 # (in another tab)
-npm run example  # chage to example directory and install modules
+# this command will chage to example directory and install modules
+
+#npm
+npm run example
+
+#yarn
+yarn run example
 ```
 
 And finally we can run the project and test.
 
 ```bash
 # (on the same tab as the previous command)
-npm run preview # runs create-react-app dev server
+# runs create-react-app dev server
+
+#npm
+npm run preview
+
+#yarn
+yarn run preview
 ```
 
 Now, anytime you make a change to your library in src/ or to the example app's example/src, create-react-app will live-reload your local dev server so you can iterate on your component in real-time.
 
 ## Usage & Examples
 
-The package is not yet published but below are some examples of how to use Axios Hook Library.
-
+Here are some examples of how to use Axios Hook Library.
 First we will need to install the package
 
 ```bash
-npm install --save axios-hook-library
+# npm
+npm install axios-hook-library
+
+# yarn
+yarn add axios-hook-library
 ```
 
 ### Usage
@@ -135,7 +158,7 @@ In the code below we have some useful information on how to use the library
 const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
 
 //Function fetchData
-//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data, headers
+//Params: baseURL, method ("GET" | "POST" | "PUT" | "PATCH" | "DELETE"), data
 fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 
 //React States
@@ -143,7 +166,7 @@ fetchData('https://jsonplaceholder.typicode.com/posts', 'GET')
 isLoading && <p>Loading</p>
 isSuccess && <p>Sent</p>
 hasError && <p>Error</p>
-rspData && <pre>{JSON.stringify(data, null, 2)}</pre>
+rspData && <pre>{JSON.stringify(rspData, null, 2)}</pre>
 ```
 
 ### Examples
@@ -165,7 +188,7 @@ const App = () => {
   const formData = {
     title: 'Axios Hook Library',
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    userId: 1
+    userId: 1,
   }
 
   return (
@@ -232,15 +255,15 @@ const App = () => {
             Get Posts
           </button>
         </header>
-        <div className='posts'>
+        <div className='comments'>
           {isLoading && <p>Loading Content...</p>}
           {hasError && <p>Some error occurred, try again.</p>}
           {checkData() &&
-            rspData.data.map((post: any) => {
+            rspData.data.map((comment: any) => {
               return (
-                <div key={post.id}>
-                  <h1>{post.title}</h1>
-                  <p>{post.body}</p>
+                <div key={comment.id}>
+                  <h1>{comment.title}</h1>
+                  <p>{comment.body}</p>
                 </div>
               )
             })}
@@ -267,7 +290,7 @@ const App = () => {
 
   const formData = {
     title: 'Axios Hook Library',
-    userId: 1
+    userId: 1,
   }
 
   return (
