@@ -365,8 +365,10 @@ export default App
 Here are some features that i want to add in the package. If you want to help, send me a PR
 
 - [ ] Create a DOC page;
-- [ ] Unitary tests with Jest to the axios functions;
+- [ ] Create Unitary tests to the React Hook function;
+- [ ] Add Husky to the project
 - [ ] Check and fix all types;
+- [ ] Add Headers param in fetchData function;
 - [ ] Add Headers Fields to Input headers options on Playground/Preview URL;
 - [ ] Check the code and dependencies looking for Security Issues;
 
