@@ -12,6 +12,8 @@
 ## Table of contents
 
 - [About](#about)
+  - [Options](#options)
+  - [Dependencies](#dependencies)
 - [Playground](#playground)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -24,7 +26,40 @@
 
 ## About
 
-This project was developed as an NPM package to aid in our internal development to minimize code on our projects.
+Esse pacote foi desenvolvido para facilitar as requisições HTTP com Axios e monitorar o status das requisições e salvar seus valores em estados do react.
+
+### Options
+
+```tsx
+import useAxiosHook from 'axios-hook-library'
+
+const App = () => {
+  const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
+}
+```
+
+#### Geral
+
+| Options      | Description                                                                                                     |     Type |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | -------: |
+| isLoading    | Verdadeiro ao iniciar a requisição e false ao finalizar (independente do resultado).                            |  Boolean |
+| isSuccess    | Verdadeiro caso a requisição retorne um sucesso.                                                                |  Boolean |
+| hasError     | Verdadeiro caso a requisição falhe.                                                                             |  Boolean |
+| rspData      | Objeto completo da resposta da requisição. Independente de sucesso ou falha.                                    |   Object |
+| fetchData    | Função para executar a requisição.                                                                              | Function |
+| useAxiosHook | Function to call Hook. Params: resetInterval => Set a number in miliseconds to reset isSuccess after that time. | Function |
+
+#### fetchData Params
+
+| Params  | Description                                                        | Type   |
+| :------ | :----------------------------------------------------------------- | :----- |
+| baseUrl | Url to request or send data                                        | String |
+| method  | Métodos da requisição: "GET" / "POST" / "PUT" / "PATCH" / "DELETE" | String |
+| data    | Dados que serão enviados para o endpoint na requisição             | Object |
+
+### Dependencies
+
+- [Axios](https://www.npmjs.com/package/axios)
 
 ## Playground
 
@@ -53,6 +88,7 @@ import './App.css'
 
 const App = () => {
   const { isLoading, isSuccess, hasError, rspData, fetchData } = useAxiosHook()
+  const endpoint = 'https://jsonplaceholder.typicode.com/posts'
 
   return (
     <main>
@@ -60,6 +96,7 @@ const App = () => {
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
         </header>
+        <button onClick={() => fetchData(endpoint, 'GET')}>Fetch</button>
       </div>
     </main>
   )
