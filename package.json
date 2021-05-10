@@ -47,7 +47,7 @@
     "prepublishOnly": "npm run test",
     "publish": "npm publish",
     "preversion": "npm run test:lint",
-    "version": "npm run format && git add -A",
+    "version": "npm run format && git add -A && git commit -m \"🔖 updating %s\"",
     "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
